@@ -130,7 +130,7 @@
       justify-content: center;
       gap: 24px;
       flex-wrap: wrap;
-      max-width: 1000px;
+      max-width: 1280px;
       margin: 0 auto;
     }
 
@@ -378,6 +378,51 @@
 
     .modal .btn-submit:hover { background: #1a5c30; }
 
+    /* Referral */
+    .referral {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #f0faf3 0%, #e0efe4 100%);
+    }
+
+    .referral-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .referral-card h2 {
+      font-size: 1.8rem;
+      color: #1a5c30;
+      margin-bottom: 8px;
+    }
+
+    .referral-card .subtitle {
+      font-size: 1.05rem;
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .referral-card .offer {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 8px 20px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .referral-card .how {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
     /* Footer */
     footer {
       background: #1a5c30;
@@ -439,9 +484,23 @@
 
     <div class="tiers">
       <div class="tier">
+        <h3>Lite</h3>
+        <span class="hoa-badge">HOA Discount</span>
+        <div class="original-price">$45/mo</div>
+        <div class="price">$25 <span>/mo</span></div>
+        <div class="frequency">Every other week</div>
+        <ul>
+          <li>Biweekly yard cleanup</li>
+          <li>Up to 2 dogs included</li>
+          <li>Waste bagged &amp; removed</li>
+        </ul>
+        <button onclick="checkout('lite')">Get Started</button>
+      </div>
+
+      <div class="tier">
         <h3>Basic</h3>
         <span class="hoa-badge">HOA Discount</span>
-        <div class="original-price">$49/mo</div>
+        <div class="original-price">$65/mo</div>
         <div class="price">$35 <span>/mo</span></div>
         <div class="frequency">1 visit per week</div>
         <ul>
@@ -456,7 +515,7 @@
       <div class="tier popular">
         <h3>Standard</h3>
         <span class="hoa-badge">HOA Discount</span>
-        <div class="original-price">$79/mo</div>
+        <div class="original-price">$99/mo</div>
         <div class="price">$59 <span>/mo</span></div>
         <div class="frequency">2 visits per week</div>
         <ul>
@@ -472,7 +531,7 @@
       <div class="tier">
         <h3>Premium</h3>
         <span class="hoa-badge">HOA Discount</span>
-        <div class="original-price">$119/mo</div>
+        <div class="original-price">$139/mo</div>
         <div class="price">$89 <span>/mo</span></div>
         <div class="frequency">3 visits per week</div>
         <ul>
@@ -481,7 +540,6 @@
           <li>Waste bagged &amp; removed</li>
           <li>Deodorizer treatment</li>
           <li>Priority scheduling</li>
-          <li>Yard health report</li>
         </ul>
         <button onclick="checkout('premium')">Get Started</button>
       </div>
@@ -492,7 +550,7 @@
     <h2>Common Questions</h2>
     <div class="faq-item">
       <h3>What if I have more than 2 dogs?</h3>
-      <p>Basic and Standard plans include up to 2 dogs. Additional dogs are $10/mo each. The Premium plan covers unlimited dogs.</p>
+      <p>Basic and Standard plans include up to 2 dogs. Additional dogs are just $5/mo each. The Premium plan covers unlimited dogs.</p>
     </div>
     <div class="faq-item">
       <h3>Do I need to be home?</h3>
@@ -505,6 +563,19 @@
     <div class="faq-item">
       <h3>Can I pause or cancel anytime?</h3>
       <p>Absolutely. No contracts, no cancellation fees. Pause or cancel your plan whenever you need to.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you have a referral program?</h3>
+      <p>Yes! Refer a Pomona neighbor and you both get $10 off your next month. Just have them mention your name when they sign up.</p>
+    </div>
+  </section>
+
+  <section class="referral">
+    <div class="referral-card">
+      <h2>Refer a Neighbor, Both Save</h2>
+      <p class="subtitle">Know a Pomona neighbor with pets? Share the love (and the savings).</p>
+      <div class="offer">$10 off for both of you</div>
+      <p class="how">Just have your neighbor mention your name when they sign up. Once they're active, you both get $10 off your next month. No limit on referrals.</p>
     </div>
   </section>
 
@@ -584,12 +655,14 @@
   <script>
     // Stripe Payment Links — replace with your actual links from Stripe Dashboard
     const PAYMENT_LINKS = {
-      basic:    'https://buy.stripe.com/test_fZu7sK8ZF6ru1lz2crd7q00',
-      standard: 'https://buy.stripe.com/test_00wfZg0t96ru5BP9ETd7q01',
-      premium:  'https://buy.stripe.com/test_7sY4gygs73fi1lzaIXd7q02',
+      lite:     'https://buy.stripe.com/14A6oG4SG1tMeVO7o15ZC04',
+      basic:    'https://buy.stripe.com/dRm5kCgBo6O64ha5fT5ZC03',
+      standard: 'https://buy.stripe.com/6oUeVc2Ky7SacNGgYB5ZC02',
+      premium:  'https://buy.stripe.com/00weVc4SGegy00U0ZD5ZC01',
     };
 
     const PLAN_LABELS = {
+      lite: 'Lite — $25/mo (every other week)',
       basic: 'Basic — $35/mo (1 visit/week)',
       standard: 'Standard — $59/mo (2 visits/week)',
       premium: 'Premium — $89/mo (3 visits/week)',
