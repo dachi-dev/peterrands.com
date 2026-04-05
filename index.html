@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peter Rands - Pet Waste Pickup Service</title>
+  <title>Pet Errands - Pet Errands &amp; Care Services</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -13,12 +13,67 @@
       line-height: 1.6;
     }
 
+    /* Nav */
+    nav {
+      background: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #1a5c30;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav .logo img { display: block; }
+
+    nav .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    nav .nav-link {
+      color: #333;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    nav .nav-link:hover { background: #f0faf3; color: #1a5c30; }
+
+    nav a.cta {
+      background: #2d7d46;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    nav a.cta:hover { background: #1a5c30; }
+
     /* Hero */
     .hero {
       background: linear-gradient(135deg, #2d7d46 0%, #1a5c30 100%);
       color: white;
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 100px 20px 80px;
     }
 
     .hero h1 {
@@ -29,8 +84,8 @@
     .hero p {
       font-size: 1.25rem;
       opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto 32px;
+      max-width: 640px;
+      margin: 0 auto 36px;
     }
 
     .hero-emoji {
@@ -38,20 +93,320 @@
       margin-bottom: 16px;
     }
 
-    /* How it works */
-    .how-it-works {
-      padding: 60px 20px;
-      text-align: center;
-      background: #f8f9fa;
+    .hero .btn {
+      display: inline-block;
+      background: white;
+      color: #1a5c30;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: transform 0.2s;
     }
 
-    .how-it-works h2 {
+    .hero .btn:hover { transform: translateY(-2px); }
+
+    /* Services */
+    .services {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .services h2 {
       font-size: 2rem;
-      margin-bottom: 40px;
+      margin-bottom: 12px;
       color: #1a5c30;
     }
 
-    .steps {
+    .services > p {
+      color: #666;
+      margin-bottom: 48px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      border: 2px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 36px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border-color: #2d7d46;
+    }
+
+    .service-card .icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: #1a5c30;
+    }
+
+    .service-card p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card .link {
+      color: #2d7d46;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .service-card .link::after {
+      content: ' \2192';
+    }
+
+    /* HOA Specials */
+    .hoa-specials {
+      padding: 80px 20px;
+      text-align: center;
+      background: #f0faf3;
+    }
+
+    .hoa-specials h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      color: #1a5c30;
+    }
+
+    .hoa-specials > p {
+      color: #666;
+      margin-bottom: 32px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hoa-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 32px;
+      background: #e0efe4;
+      border-radius: 10px;
+      padding: 4px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hoa-tab {
+      flex: 1;
+      padding: 12px 20px;
+      border: none;
+      background: transparent;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #555;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .hoa-tab.active {
+      background: white;
+      color: #1a5c30;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .hoa-tab:hover:not(.active) {
+      color: #1a5c30;
+    }
+
+    .hoa-panel {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hoa-panel.active { display: block; }
+
+    .hoa-deal {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hoa-deal:hover {
+      border-color: #2d7d46;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .hoa-deal-info { flex: 1; min-width: 240px; }
+
+    .hoa-deal-info .badge {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .hoa-deal-info h3 {
+      font-size: 1.3rem;
+      color: #1a5c30;
+      margin-bottom: 8px;
+    }
+
+    .hoa-deal-info p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .hoa-deal-info ul {
+      list-style: none;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hoa-deal-info ul li {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .hoa-deal-info ul li::before {
+      content: '\2713';
+      color: #2d7d46;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .hoa-deal-action {
+      text-align: center;
+    }
+
+    .hoa-deal-action .price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .hoa-deal-action .price span {
+      font-size: 0.85rem;
+      color: #888;
+      font-weight: 400;
+    }
+
+    .hoa-deal-action .original {
+      text-decoration: line-through;
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .hoa-deal-action a {
+      display: inline-block;
+      background: #2d7d46;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    .hoa-deal-action a:hover { background: #1a5c30; }
+
+    .hoa-coming-soon {
+      background: white;
+      border: 2px dashed #d0d0d0;
+      border-radius: 16px;
+      padding: 48px 32px;
+      color: #999;
+      font-size: 1.05rem;
+    }
+
+    /* Areas */
+    .areas {
+      padding: 60px 20px;
+      background: #f8f9fa;
+      text-align: center;
+    }
+
+    .areas h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: #1a5c30;
+    }
+
+    .areas > p {
+      color: #666;
+      margin-bottom: 32px;
+    }
+
+    .area-tags {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .area-tags a {
+      background: white;
+      border: 2px solid #e0e0e0;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .area-tags a:hover {
+      border-color: #2d7d46;
+      background: #f0faf3;
+    }
+
+    /* Why us */
+    .why-us {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .why-us h2 {
+      font-size: 2rem;
+      margin-bottom: 48px;
+      color: #1a5c30;
+    }
+
+    .reasons {
       display: flex;
       justify-content: center;
       gap: 40px;
@@ -60,157 +415,15 @@
       margin: 0 auto;
     }
 
-    .step {
+    .reason {
       flex: 1;
       min-width: 200px;
       max-width: 260px;
     }
 
-    .step-icon {
-      font-size: 2.5rem;
-      margin-bottom: 12px;
-    }
-
-    .step h3 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .step p {
-      font-size: 0.95rem;
-      color: #666;
-    }
-
-    /* Pricing */
-    .pricing {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .pricing h2 {
-      font-size: 2rem;
-      margin-bottom: 12px;
-      color: #1a5c30;
-    }
-
-    .pricing > p {
-      color: #666;
-      margin-bottom: 40px;
-    }
-
-    .tiers {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .tier {
-      border: 2px solid #e0e0e0;
-      border-radius: 16px;
-      padding: 32px 28px;
-      flex: 1;
-      min-width: 280px;
-      max-width: 320px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative;
-    }
-
-    .tier:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
-
-    .tier.popular {
-      border-color: #2d7d46;
-      background: #f0faf3;
-    }
-
-    .tier.popular::before {
-      content: 'Most Popular';
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #2d7d46;
-      color: white;
-      padding: 4px 16px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .tier h3 {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-      color: #1a5c30;
-    }
-
-    .tier .price {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #333;
-    }
-
-    .tier .price span {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #888;
-    }
-
-    .tier .frequency {
-      color: #888;
-      margin-bottom: 20px;
-      font-size: 0.95rem;
-    }
-
-    .tier ul {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 28px;
-    }
-
-    .tier ul li {
-      padding: 6px 0;
-      font-size: 0.95rem;
-    }
-
-    .tier ul li::before {
-      content: '\2713';
-      color: #2d7d46;
-      font-weight: 700;
-      margin-right: 8px;
-    }
-
-    .tier button {
-      width: 100%;
-      padding: 14px;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .tier button {
-      background: #2d7d46;
-      color: white;
-    }
-
-    .tier button:hover {
-      background: #1a5c30;
-    }
-
-    .tier.popular button {
-      background: #1a5c30;
-    }
-
-    .tier.popular button:hover {
-      background: #14472a;
-    }
+    .reason .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .reason h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .reason p { font-size: 0.95rem; color: #666; }
 
     /* Footer */
     footer {
@@ -220,141 +433,172 @@
       padding: 32px 20px;
     }
 
-    footer p {
-      opacity: 0.8;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #a0d8b0;
-    }
+    footer p { opacity: 0.8; font-size: 0.9rem; }
+    footer a { color: #a0d8b0; }
 
     /* Responsive */
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
-      .tiers { flex-direction: column; align-items: center; }
-      .tier { max-width: 360px; width: 100%; }
+      .service-grid { grid-template-columns: 1fr; max-width: 400px; }
     }
   </style>
 </head>
 <body>
 
+  <nav>
+    <a href="/" class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="32" height="32"><ellipse cx="20" cy="26" rx="10" ry="9" fill="#1a5c30"/><ellipse cx="10" cy="14" rx="5" ry="6" fill="#1a5c30"/><ellipse cx="20" cy="11" rx="5" ry="6" fill="#1a5c30"/><ellipse cx="30" cy="14" rx="5" ry="6" fill="#1a5c30"/></svg> Pet Errands</a>
+    <div class="nav-links">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#areas" class="nav-link">Areas</a>
+      <a href="#hoa-specials" class="cta">HOA Specials</a>
+    </div>
+  </nav>
+
   <section class="hero">
-    <div class="hero-emoji">🐕💩</div>
-    <h1>Peter Rands Poop Patrol</h1>
-    <p>We scoop so you don't have to. Professional pet waste removal that keeps your yard clean and your shoes safe.</p>
+    <div class="hero-emoji">🐾</div>
+    <h1>Pet Errands, Handled.</h1>
+    <p>From poop patrol to pet taxi, grooming runs to supply drops. We take care of the pet chores so you can enjoy the cuddles.</p>
+    <a href="#services" class="btn">See Our Services</a>
   </section>
 
-  <section class="how-it-works">
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-icon">📋</div>
-        <h3>1. Pick a Plan</h3>
-        <p>Choose the service frequency that fits your yard and your pets.</p>
+  <section class="services" id="services">
+    <h2>What We Do</h2>
+    <p>Everything your pet needs, minus the vet visit. We handle the dirty work and the daily runs.</p>
+
+    <div class="service-grid">
+      <a href="/pomona/" class="service-card">
+        <div class="icon">💩</div>
+        <h3>Waste Pickup</h3>
+        <p>Scheduled yard cleanups so you never step in a surprise. Weekly, bi-weekly, or triple-visit plans.</p>
+        <span class="link">View plans</span>
+      </a>
+
+      <div class="service-card">
+        <div class="icon">🚗</div>
+        <h3>Pet Taxi</h3>
+        <p>Safe rides to the vet, groomer, daycare, or anywhere else your pet needs to be.</p>
+        <span class="link">Coming soon</span>
       </div>
-      <div class="step">
-        <div class="step-icon">🗓️</div>
-        <h3>2. We Show Up</h3>
-        <p>Our team arrives on schedule, rain or shine, to clean your yard.</p>
+
+      <div class="service-card">
+        <div class="icon">🛁</div>
+        <h3>Grooming Runs</h3>
+        <p>We drop off and pick up your pet from the groomer. No more rearranging your schedule.</p>
+        <span class="link">Coming soon</span>
       </div>
-      <div class="step">
-        <div class="step-icon">✨</div>
-        <h3>3. Enjoy Your Yard</h3>
-        <p>Step outside worry-free onto a clean, fresh lawn every time.</p>
+
+      <div class="service-card">
+        <div class="icon">🦴</div>
+        <h3>Supply Delivery</h3>
+        <p>Food, treats, medication pickups. We grab what your pet needs and bring it to your door.</p>
+        <span class="link">Coming soon</span>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🐕</div>
+        <h3>Dog Walking</h3>
+        <p>Regular walks on your schedule. Solo or small group options to keep your pup active and happy.</p>
+        <span class="link">Coming soon</span>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🏠</div>
+        <h3>Pet Sitting</h3>
+        <p>In-home visits or overnight stays while you're away. Your pets stay comfortable at home.</p>
+        <span class="link">Coming soon</span>
       </div>
     </div>
   </section>
 
-  <section class="pricing" id="pricing">
-    <h2>Simple, Honest Pricing</h2>
-    <p>No contracts. Cancel anytime. All plans include up to 2 dogs.</p>
+  <section class="hoa-specials" id="hoa-specials">
+    <h2>HOA Specials</h2>
+    <p>Exclusive discounted rates for homeowner associations. Bundle service for your community and save.</p>
 
-    <div class="tiers">
-      <!-- Tier 1: Basic -->
-      <div class="tier">
-        <h3>Basic</h3>
-        <div class="price">$49 <span>/mo</span></div>
-        <div class="frequency">1 visit per week</div>
-        <ul>
-          <li>Weekly yard cleanup</li>
-          <li>Up to 2 dogs included</li>
-          <li>Waste bagged &amp; removed</li>
-          <li>Service reminder texts</li>
-        </ul>
-        <button onclick="checkout('basic')">Get Started</button>
+    <div class="hoa-tabs">
+      <button class="hoa-tab active" onclick="switchTab('pomona')">Pomona</button>
+      <button class="hoa-tab" onclick="switchTab('sienna')">Sienna</button>
+      <button class="hoa-tab" onclick="switchTab('meridiana')">Meridiana</button>
+      <button class="hoa-tab" onclick="switchTab('shadowcreek')">Shadow Creek</button>
+    </div>
+
+    <div class="hoa-panel active" id="tab-pomona">
+      <div class="hoa-deal">
+        <div class="hoa-deal-info">
+          <span class="badge">HOA Exclusive</span>
+          <h3>Pomona HOA Waste Pickup</h3>
+          <p>Weekly pet waste cleanup for HOA residents. Discounted group rate when your community signs up together.</p>
+          <ul>
+            <li>Weekly service</li>
+            <li>Up to 2 dogs</li>
+            <li>All waste removed</li>
+            <li>HOA billing</li>
+          </ul>
+        </div>
+        <div class="hoa-deal-action">
+          <div class="original">$49/mo</div>
+          <div class="price">$35 <span>/mo per unit</span></div>
+          <a href="/pomona/">View Plans</a>
+        </div>
       </div>
+    </div>
 
-      <!-- Tier 2: Standard -->
-      <div class="tier popular">
-        <h3>Standard</h3>
-        <div class="price">$79 <span>/mo</span></div>
-        <div class="frequency">2 visits per week</div>
-        <ul>
-          <li>Twice-weekly cleanup</li>
-          <li>Up to 2 dogs included</li>
-          <li>Waste bagged &amp; removed</li>
-          <li>Deodorizer treatment</li>
-          <li>Priority scheduling</li>
-        </ul>
-        <button onclick="checkout('standard')">Get Started</button>
+    <div class="hoa-panel" id="tab-sienna">
+      <div class="hoa-coming-soon">Sienna HOA specials coming soon. Contact us to get on the waitlist.</div>
+    </div>
+
+    <div class="hoa-panel" id="tab-meridiana">
+      <div class="hoa-coming-soon">Meridiana HOA specials coming soon. Contact us to get on the waitlist.</div>
+    </div>
+
+    <div class="hoa-panel" id="tab-shadowcreek">
+      <div class="hoa-coming-soon">Shadow Creek HOA specials coming soon. Contact us to get on the waitlist.</div>
+    </div>
+  </section>
+
+  <section class="areas" id="areas">
+    <h2>Service Areas</h2>
+    <p>Currently serving communities in Manvel, TX and surrounding areas.</p>
+    <div class="area-tags">
+      <a href="/pomona/">Pomona</a>
+      <a href="#">Sienna</a>
+      <a href="#">Meridiana</a>
+      <a href="#">Shadow Creek</a>
+    </div>
+  </section>
+
+  <section class="why-us">
+    <h2>Why Pet Errands?</h2>
+    <div class="reasons">
+      <div class="reason">
+        <div class="icon">⏰</div>
+        <h3>Reliable Schedule</h3>
+        <p>We show up when we say we will. Rain or shine, your pets are covered.</p>
       </div>
-
-      <!-- Tier 3: Premium -->
-      <div class="tier">
-        <h3>Premium</h3>
-        <div class="price">$119 <span>/mo</span></div>
-        <div class="frequency">3 visits per week</div>
-        <ul>
-          <li>Three visits per week</li>
-          <li>Unlimited dogs</li>
-          <li>Waste bagged &amp; removed</li>
-          <li>Deodorizer treatment</li>
-          <li>Priority scheduling</li>
-          <li>Yard health report</li>
-        </ul>
-        <button onclick="checkout('premium')">Get Started</button>
+      <div class="reason">
+        <div class="icon">💚</div>
+        <h3>Pet-First Approach</h3>
+        <p>Every team member is background-checked and genuinely loves animals.</p>
+      </div>
+      <div class="reason">
+        <div class="icon">📱</div>
+        <h3>Easy Booking</h3>
+        <p>Simple online signup. No contracts, no hassle. Cancel anytime.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 Peter Rands Poop Patrol. All rights reserved.</p>
+    <p>&copy; 2026 Pet Errands. All rights reserved.</p>
     <p>Questions? <a href="mailto:hello@peterrands.com">hello@peterrands.com</a></p>
   </footer>
 
-  <!-- Stripe -->
-  <script src="https://js.stripe.com/v3/"></script>
   <script>
-    // TODO: Replace with your Stripe publishable key
-    const stripe = Stripe('pk_test_REPLACE_WITH_YOUR_KEY');
-
-    // TODO: Replace with your actual Stripe Price IDs
-    const PRICE_IDS = {
-      basic:    'price_REPLACE_BASIC',
-      standard: 'price_REPLACE_STANDARD',
-      premium:  'price_REPLACE_PREMIUM',
-    };
-
-    async function checkout(tier) {
-      const priceId = PRICE_IDS[tier];
-
-      try {
-        const result = await stripe.redirectToCheckout({
-          lineItems: [{ price: priceId, quantity: 1 }],
-          mode: 'subscription',
-          successUrl: window.location.origin + '/success.html',
-          cancelUrl: window.location.origin + '/#pricing',
-        });
-
-        if (result.error) {
-          alert(result.error.message);
-        }
-      } catch (err) {
-        alert('Something went wrong. Please try again.');
-        console.error(err);
-      }
+    function switchTab(area) {
+      document.querySelectorAll('.hoa-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.hoa-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + area).classList.add('active');
+      event.currentTarget.classList.add('active');
     }
   </script>
 

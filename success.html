@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Success - Peter Rands Poop Patrol</title>
+  <title>Success - Pet Errands Poop Patrol</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -43,8 +43,40 @@
   <div class="card">
     <div class="icon">🎉</div>
     <h1>You're All Set!</h1>
-    <p>Thanks for signing up with Peter Rands Poop Patrol. We'll be in touch shortly to schedule your first visit.</p>
+    <p>Thanks for signing up with Pet Errands Poop Patrol. We'll be in touch shortly to schedule your first visit.</p>
     <a href="/">Back to Home</a>
   </div>
+
+  <script>
+    // Send payment completion to Google Sheets
+    const customer = JSON.parse(localStorage.getItem('petErrands_customer') || 'null');
+    if (customer && customer.email) {
+      const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzAyTkHdbOTLzHNolYczUKJN7xbX98T4LYw47oabNoLEiz27-55rjRHT4nb4weBVM-y/exec';
+      const iframe = document.createElement('iframe');
+      iframe.name = 'sheets-update';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = SHEETS_URL;
+      form.target = 'sheets-update';
+
+      const fields = {
+        action: 'updateStatus',
+        email: customer.email,
+        paymentStatus: 'Completed'
+      };
+      Object.entries(fields).forEach(([key, val]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = val;
+        form.appendChild(input);
+      });
+      document.body.appendChild(form);
+      form.submit();
+    }
+  </script>
 </body>
 </html>
