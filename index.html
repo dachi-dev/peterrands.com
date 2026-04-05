@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter Rands - Pet Waste Pickup Service</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #2d7d46 0%, #1a5c30 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-emoji {
+      font-size: 4rem;
+      margin-bottom: 16px;
+    }
+
+    /* How it works */
+    .how-it-works {
+      padding: 60px 20px;
+      text-align: center;
+      background: #f8f9fa;
+    }
+
+    .how-it-works h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #1a5c30;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 200px;
+      max-width: 260px;
+    }
+
+    .step-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .step h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    /* Pricing */
+    .pricing {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .pricing h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: #1a5c30;
+    }
+
+    .pricing > p {
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .tiers {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .tier {
+      border: 2px solid #e0e0e0;
+      border-radius: 16px;
+      padding: 32px 28px;
+      flex: 1;
+      min-width: 280px;
+      max-width: 320px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+
+    .tier:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .tier.popular {
+      border-color: #2d7d46;
+      background: #f0faf3;
+    }
+
+    .tier.popular::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2d7d46;
+      color: white;
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .tier h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: #1a5c30;
+    }
+
+    .tier .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .tier .price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #888;
+    }
+
+    .tier .frequency {
+      color: #888;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .tier ul {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 28px;
+    }
+
+    .tier ul li {
+      padding: 6px 0;
+      font-size: 0.95rem;
+    }
+
+    .tier ul li::before {
+      content: '\2713';
+      color: #2d7d46;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .tier button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .tier button {
+      background: #2d7d46;
+      color: white;
+    }
+
+    .tier button:hover {
+      background: #1a5c30;
+    }
+
+    .tier.popular button {
+      background: #1a5c30;
+    }
+
+    .tier.popular button:hover {
+      background: #14472a;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a5c30;
+      color: white;
+      text-align: center;
+      padding: 32px 20px;
+    }
+
+    footer p {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #a0d8b0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .tiers { flex-direction: column; align-items: center; }
+      .tier { max-width: 360px; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-emoji">🐕💩</div>
+    <h1>Peter Rands Poop Patrol</h1>
+    <p>We scoop so you don't have to. Professional pet waste removal that keeps your yard clean and your shoes safe.</p>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">📋</div>
+        <h3>1. Pick a Plan</h3>
+        <p>Choose the service frequency that fits your yard and your pets.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">🗓️</div>
+        <h3>2. We Show Up</h3>
+        <p>Our team arrives on schedule, rain or shine, to clean your yard.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">✨</div>
+        <h3>3. Enjoy Your Yard</h3>
+        <p>Step outside worry-free onto a clean, fresh lawn every time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <h2>Simple, Honest Pricing</h2>
+    <p>No contracts. Cancel anytime. All plans include up to 2 dogs.</p>
+
+    <div class="tiers">
+      <!-- Tier 1: Basic -->
+      <div class="tier">
+        <h3>Basic</h3>
+        <div class="price">$49 <span>/mo</span></div>
+        <div class="frequency">1 visit per week</div>
+        <ul>
+          <li>Weekly yard cleanup</li>
+          <li>Up to 2 dogs included</li>
+          <li>Waste bagged &amp; removed</li>
+          <li>Service reminder texts</li>
+        </ul>
+        <button onclick="checkout('basic')">Get Started</button>
+      </div>
+
+      <!-- Tier 2: Standard -->
+      <div class="tier popular">
+        <h3>Standard</h3>
+        <div class="price">$79 <span>/mo</span></div>
+        <div class="frequency">2 visits per week</div>
+        <ul>
+          <li>Twice-weekly cleanup</li>
+          <li>Up to 2 dogs included</li>
+          <li>Waste bagged &amp; removed</li>
+          <li>Deodorizer treatment</li>
+          <li>Priority scheduling</li>
+        </ul>
+        <button onclick="checkout('standard')">Get Started</button>
+      </div>
+
+      <!-- Tier 3: Premium -->
+      <div class="tier">
+        <h3>Premium</h3>
+        <div class="price">$119 <span>/mo</span></div>
+        <div class="frequency">3 visits per week</div>
+        <ul>
+          <li>Three visits per week</li>
+          <li>Unlimited dogs</li>
+          <li>Waste bagged &amp; removed</li>
+          <li>Deodorizer treatment</li>
+          <li>Priority scheduling</li>
+          <li>Yard health report</li>
+        </ul>
+        <button onclick="checkout('premium')">Get Started</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Peter Rands Poop Patrol. All rights reserved.</p>
+    <p>Questions? <a href="mailto:hello@peterrands.com">hello@peterrands.com</a></p>
+  </footer>
+
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    // TODO: Replace with your Stripe publishable key
+    const stripe = Stripe('pk_test_REPLACE_WITH_YOUR_KEY');
+
+    // TODO: Replace with your actual Stripe Price IDs
+    const PRICE_IDS = {
+      basic:    'price_REPLACE_BASIC',
+      standard: 'price_REPLACE_STANDARD',
+      premium:  'price_REPLACE_PREMIUM',
+    };
+
+    async function checkout(tier) {
+      const priceId = PRICE_IDS[tier];
+
+      try {
+        const result = await stripe.redirectToCheckout({
+          lineItems: [{ price: priceId, quantity: 1 }],
+          mode: 'subscription',
+          successUrl: window.location.origin + '/success.html',
+          cancelUrl: window.location.origin + '/#pricing',
+        });
+
+        if (result.error) {
+          alert(result.error.message);
+        }
+      } catch (err) {
+        alert('Something went wrong. Please try again.');
+        console.error(err);
+      }
+    }
+  </script>
+
+</body>
+</html>
