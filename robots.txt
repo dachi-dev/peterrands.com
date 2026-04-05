@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://peterrands.com/sitemap.xml
