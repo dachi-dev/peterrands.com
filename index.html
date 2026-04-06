@@ -39,6 +39,34 @@
       line-height: 1.6;
     }
 
+    /* Top Banners */
+    .top-banners {
+      position: relative;
+      z-index: 101;
+    }
+
+    .top-banner {
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .top-banner a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    .banner-discount {
+      background: #1a5c30;
+      color: white;
+    }
+
+    .banner-services {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
     /* Nav */
     nav {
       background: white;
@@ -177,6 +205,23 @@
       border-color: #2d7d46;
     }
 
+    .service-card.coming-soon {
+      opacity: 0.55;
+      background: #f5f5f5;
+      cursor: not-allowed;
+    }
+
+    .service-card.coming-soon:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: #e8e8e8;
+    }
+
+    .service-card.coming-soon h3,
+    .service-card.coming-soon .link {
+      color: #888;
+    }
+
     .service-card .icon {
       font-size: 3rem;
       margin-bottom: 16px;
@@ -205,19 +250,19 @@
     }
 
     /* HOA Specials */
-    .hoa-specials {
+    .specials {
       padding: 80px 20px;
       text-align: center;
       background: #f0faf3;
     }
 
-    .hoa-specials h2 {
+    .specials h2 {
       font-size: 2rem;
       margin-bottom: 8px;
       color: #1a5c30;
     }
 
-    .hoa-specials > p {
+    .specials > p {
       color: #666;
       margin-bottom: 32px;
       max-width: 560px;
@@ -228,6 +273,9 @@
     .hoa-panel {
       max-width: 800px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     .hoa-deal {
@@ -444,13 +492,17 @@
 </head>
 <body>
 
+  <div class="top-banners">
+    <div class="top-banner banner-discount">Save up to 46% — Limited-time launch pricing</div>
+  </div>
+
   <header>
   <nav>
     <a href="/" class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="32" height="32" aria-label="Pet Errands logo" role="img"><ellipse cx="20" cy="26" rx="10" ry="9" fill="#1a5c30"/><ellipse cx="10" cy="14" rx="5" ry="6" fill="#1a5c30"/><ellipse cx="20" cy="11" rx="5" ry="6" fill="#1a5c30"/><ellipse cx="30" cy="14" rx="5" ry="6" fill="#1a5c30"/></svg> Pet Errands</a>
     <div class="nav-links">
       <a href="#services" class="nav-link">Services</a>
       <a href="#areas" class="nav-link">Areas</a>
-      <a href="#hoa-specials" class="cta">Specials</a>
+      <a href="#specials" class="cta">Specials</a>
     </div>
   </nav>
   </header>
@@ -468,42 +520,42 @@
     <p>Everything your pet needs, minus the vet visit. We handle the dirty work and the daily runs.</p>
 
     <div class="service-grid">
-      <a href="#hoa-specials" class="service-card">
+      <a href="#specials" class="service-card">
         <div class="icon">💩</div>
         <h3>Waste Pickup</h3>
         <p>Scheduled yard cleanups so you never step in a surprise. Weekly, bi-weekly, or triple-visit plans.</p>
         <span class="link">View plans</span>
       </a>
 
-      <div class="service-card">
+      <a href="/dog-walking/" class="service-card">
+        <div class="icon">🐕</div>
+        <h3>Dog Walking</h3>
+        <p>Pay-as-you-go walk packs from $17/walk. No subscription, no commitment. Use punches whenever you need.</p>
+        <span class="link">View packs</span>
+      </a>
+
+      <div class="service-card coming-soon">
         <div class="icon">🚗</div>
         <h3>Pet Taxi</h3>
         <p>Safe rides to the vet, groomer, daycare, or anywhere else your pet needs to be.</p>
         <span class="link">Coming soon</span>
       </div>
 
-      <div class="service-card">
+      <div class="service-card coming-soon">
         <div class="icon">🛁</div>
         <h3>Grooming Runs</h3>
         <p>We drop off and pick up your pet from the groomer. No more rearranging your schedule.</p>
         <span class="link">Coming soon</span>
       </div>
 
-      <div class="service-card">
+      <div class="service-card coming-soon">
         <div class="icon">🦴</div>
         <h3>Supply Delivery</h3>
         <p>Food, treats, medication pickups. We grab what your pet needs and bring it to your door.</p>
         <span class="link">Coming soon</span>
       </div>
 
-      <div class="service-card">
-        <div class="icon">🐕</div>
-        <h3>Dog Walking</h3>
-        <p>Regular walks on your schedule. Solo or small group options to keep your pup active and happy.</p>
-        <span class="link">Coming soon</span>
-      </div>
-
-      <div class="service-card">
+      <div class="service-card coming-soon">
         <div class="icon">🏠</div>
         <h3>Pet Sitting</h3>
         <p>In-home visits or overnight stays while you're away. Your pets stay comfortable at home.</p>
@@ -512,8 +564,8 @@
     </div>
   </section>
 
-  <section class="hoa-specials" id="hoa-specials">
-    <h2>Waste Pickup Specials</h2>
+  <section class="specials" id="specials">
+    <h2>Specials</h2>
     <p>Discounted launch pricing for everyone in Pearland, Manvel, and the surrounding Houston area. Extra group rates available when an HOA signs up together.</p>
 
     <div class="hoa-panel active">
@@ -535,6 +587,25 @@
           <a href="/waste-pickup/">View Plans</a>
         </div>
       </div>
+
+      <div class="hoa-deal">
+        <div class="hoa-deal-info">
+          <span class="badge">Launch Pricing</span>
+          <h3>Dog Walking</h3>
+          <p>Pay-as-you-go walk packs with no subscription. Buy in bulk and save — punches valid for 6 months so you can use them at your own pace.</p>
+          <ul>
+            <li>30-min active walks</li>
+            <li>Up to 2 dogs</li>
+            <li>Photo &amp; note after each walk</li>
+            <li>Save up to 23% with packs</li>
+          </ul>
+        </div>
+        <div class="hoa-deal-action">
+          <div class="original">$22/walk</div>
+          <div class="price">$17 <span>/walk (20-pack)</span></div>
+          <a href="/dog-walking/">View Packs</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -544,59 +615,59 @@
 
     <h3 class="area-city">Manvel</h3>
     <div class="area-tags">
-      <a href="/waste-pickup/">Pomona</a>
-      <a href="/waste-pickup/">Rodeo Palms</a>
-      <a href="/waste-pickup/">Del Bello Lakes</a>
-      <a href="/waste-pickup/">Sedona Lakes</a>
-      <a href="/waste-pickup/">Lakeland</a>
+      <a href="#specials">Pomona</a>
+      <a href="#specials">Rodeo Palms</a>
+      <a href="#specials">Del Bello Lakes</a>
+      <a href="#specials">Sedona Lakes</a>
+      <a href="#specials">Lakeland</a>
     </div>
 
     <h3 class="area-city">Pearland</h3>
     <div class="area-tags">
-      <a href="/waste-pickup/">Shadow Creek Ranch</a>
-      <a href="/waste-pickup/">Silverlake</a>
-      <a href="/waste-pickup/">Silvercreek</a>
-      <a href="/waste-pickup/">Southern Trails</a>
-      <a href="/waste-pickup/">Southdown</a>
-      <a href="/waste-pickup/">Riverstone Ranch</a>
-      <a href="/waste-pickup/">Pearland Pointe</a>
-      <a href="/waste-pickup/">Country Place</a>
-      <a href="/waste-pickup/">Sunrise Lakes</a>
-      <a href="/waste-pickup/">West Oaks</a>
-      <a href="/waste-pickup/">Pine Hollow</a>
-      <a href="/waste-pickup/">Twin Creek</a>
-      <a href="/waste-pickup/">Green Tee Terrace</a>
+      <a href="#specials">Shadow Creek Ranch</a>
+      <a href="#specials">Silverlake</a>
+      <a href="#specials">Silvercreek</a>
+      <a href="#specials">Southern Trails</a>
+      <a href="#specials">Southdown</a>
+      <a href="#specials">Riverstone Ranch</a>
+      <a href="#specials">Pearland Pointe</a>
+      <a href="#specials">Country Place</a>
+      <a href="#specials">Sunrise Lakes</a>
+      <a href="#specials">West Oaks</a>
+      <a href="#specials">Pine Hollow</a>
+      <a href="#specials">Twin Creek</a>
+      <a href="#specials">Green Tee Terrace</a>
     </div>
 
     <h3 class="area-city">Iowa Colony &amp; Rosharon</h3>
     <div class="area-tags">
-      <a href="/waste-pickup/">Meridiana</a>
-      <a href="/waste-pickup/">Sterling Lakes</a>
-      <a href="/waste-pickup/">Caldwell Ranch</a>
-      <a href="/waste-pickup/">Lakes of Savannah</a>
-      <a href="/waste-pickup/">Sierra Vista</a>
-      <a href="/waste-pickup/">Suncreek Estates</a>
+      <a href="#specials">Meridiana</a>
+      <a href="#specials">Sterling Lakes</a>
+      <a href="#specials">Caldwell Ranch</a>
+      <a href="#specials">Lakes of Savannah</a>
+      <a href="#specials">Sierra Vista</a>
+      <a href="#specials">Suncreek Estates</a>
     </div>
 
     <h3 class="area-city">Friendswood</h3>
     <div class="area-tags">
-      <a href="/waste-pickup/">West Ranch</a>
-      <a href="/waste-pickup/">Heritage Park</a>
-      <a href="/waste-pickup/">Forest Bend</a>
-      <a href="/waste-pickup/">Forest Creek</a>
+      <a href="#specials">West Ranch</a>
+      <a href="#specials">Heritage Park</a>
+      <a href="#specials">Forest Bend</a>
+      <a href="#specials">Forest Creek</a>
     </div>
 
     <h3 class="area-city">Alvin</h3>
     <div class="area-tags">
-      <a href="/waste-pickup/">Kendall Lakes</a>
-      <a href="/waste-pickup/">Martha's Vineyard</a>
-      <a href="/waste-pickup/">Stoneybrook</a>
+      <a href="#specials">Kendall Lakes</a>
+      <a href="#specials">Martha's Vineyard</a>
+      <a href="#specials">Stoneybrook</a>
     </div>
 
     <h3 class="area-city">Missouri City</h3>
     <div class="area-tags">
-      <a href="/waste-pickup/">Sienna</a>
-      <a href="/waste-pickup/">Riverstone</a>
+      <a href="#specials">Sienna</a>
+      <a href="#specials">Riverstone</a>
     </div>
   </section>
 
