@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>50% Off - Pet Waste Pickup Promo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
+
+  html, body { margin: 0; padding: 0; background: #2a2a2a; font-family: 'Inter', sans-serif; }
+
+  .poster {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #1a5c30 0%, #2d7d46 60%, #4ba866 100%);
+    color: #fff;
+    margin: 0 auto;
+  }
+
+  /* Top dog photo */
+  .photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 540px;
+    background-image: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&q=80');
+    background-size: cover;
+    background-position: center 35%;
+  }
+  .photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, #1a5c30 100%);
+  }
+
+  /* Burst badge */
+  .badge {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    width: 240px;
+    height: 240px;
+    background: #fef3c7;
+    color: #92400e;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    transform: rotate(-12deg);
+    border: 6px solid #fff;
+    text-align: center;
+    line-height: 1;
+  }
+  .badge .pct { font-size: 96px; font-weight: 900; letter-spacing: -3px; }
+  .badge .off { font-size: 32px; font-weight: 800; margin-top: 6px; letter-spacing: 2px; }
+
+  /* Content */
+  .content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 60px 70px 70px;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #fef3c7;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 84px;
+    font-weight: 900;
+    line-height: 0.95;
+    margin: 0 0 24px;
+    letter-spacing: -2px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  }
+  h1 span { color: #ffd84d; }
+  .sub {
+    font-size: 28px;
+    font-weight: 500;
+    opacity: 0.95;
+    margin-bottom: 36px;
+    line-height: 1.35;
+  }
+  .cta {
+    display: inline-block;
+    background: #ffd84d;
+    color: #1a5c30;
+    font-size: 30px;
+    font-weight: 900;
+    padding: 22px 56px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  .footer {
+    margin-top: 28px;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.9;
+    letter-spacing: 1px;
+  }
+  .footer strong { color: #ffd84d; }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="photo"></div>
+
+    <div class="badge">
+      <div class="pct">50%</div>
+      <div class="off">OFF</div>
+    </div>
+
+    <div class="content">
+      <div class="eyebrow">Pearland &amp; Surrounding Areas</div>
+      <h1>Pet Waste Pickup<br><span>First Cleaning Free*</span></h1>
+      <div class="sub">Weekly yard cleanups starting at <strong>$25/mo</strong>.<br>No contracts. Cancel anytime.</div>
+      <div class="cta">Book at PetErrands.com</div>
+      <div class="footer">*With purchase of service &middot; New customers &middot; Limited time</div>
+    </div>
+  </div>
+</body>
+</html>

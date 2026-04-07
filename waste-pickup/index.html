@@ -45,6 +45,11 @@
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "Who are we?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Pet Errands is a locally owned, family-run business based in the Pearland and Manvel area. Every Pet Pawvisor we send is background-checked, interviewed in person, and has extensive hands-on experience with pets." }
+      },
+      {
+        "@type": "Question",
         "name": "What if I have more than 2 dogs?",
         "acceptedAnswer": { "@type": "Answer", "text": "Lite and Basic plans include up to 2 dogs. Standard and Premium plans cover unlimited dogs." }
       },
@@ -141,6 +146,30 @@
     }
 
     nav .back::before { content: '\2190 '; }
+
+    nav .nav-right { display: flex; gap: 10px; align-items: center; }
+
+    nav .nav-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #1a5c30;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 8px 14px;
+      border: 2px solid #1a5c30;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav .nav-phone:hover { background: #1a5c30; color: white; }
+    nav .nav-phone::before { content: '\1F4AC'; margin-right: 4px; }
+
+    @media (max-width: 640px) {
+      nav { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+      nav .nav-right { flex-wrap: wrap; justify-content: flex-end; }
+      nav .nav-phone { padding: 6px 10px; font-size: 0.82rem; }
+    }
 
     /* Hero */
     .hero {
@@ -391,6 +420,8 @@
       padding: 36px 32px;
       max-width: 440px;
       width: 100%;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
       position: relative;
       animation: modalIn 0.2s ease-out;
     }
@@ -434,7 +465,7 @@
       margin-bottom: 4px;
     }
 
-    .modal input, .modal select {
+    .modal input, .modal select, .modal textarea {
       width: 100%;
       padding: 10px 12px;
       border: 2px solid #e0e0e0;
@@ -445,7 +476,12 @@
       transition: border-color 0.2s;
     }
 
-    .modal input:focus, .modal select:focus {
+    .modal textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .modal input:focus, .modal select:focus, .modal textarea:focus {
       outline: none;
       border-color: #2d7d46;
     }
@@ -639,7 +675,10 @@
   <header>
   <nav>
     <a href="/" class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="32" height="32" aria-label="Pet Errands logo" role="img"><ellipse cx="20" cy="26" rx="10" ry="9" fill="#1a5c30"/><ellipse cx="10" cy="14" rx="5" ry="6" fill="#1a5c30"/><ellipse cx="20" cy="11" rx="5" ry="6" fill="#1a5c30"/><ellipse cx="30" cy="14" rx="5" ry="6" fill="#1a5c30"/></svg> Pet Errands</a>
-    <a href="/" class="back">All Services</a>
+    <div class="nav-right">
+      <a href="sms:+13373816846" class="nav-phone">Text (337) 381-6846</a>
+      <a href="/" class="back">All Services</a>
+    </div>
   </nav>
   </header>
 
@@ -674,6 +713,12 @@
   <section class="pricing" id="pricing">
     <h2>Simple, Honest Pricing</h2>
     <p>Limited-time launch rates. No contracts. Cancel anytime.</p>
+
+    <div style="max-width:720px;margin:0 auto 40px;border:2px dashed #c7e8d1;background:#f0faf3;border-radius:16px;padding:28px 32px;text-align:center;">
+      <h3 style="color:#1a5c30;font-size:1.25rem;margin-bottom:8px;">Need something different?</h3>
+      <p style="color:#555;font-size:0.95rem;margin-bottom:16px;">One-time deep cleans, large yards, HOA group plans, or custom schedules — just ask. We'll build a plan that fits.</p>
+      <a href="sms:+13373816846" style="display:inline-block;background:#2d7d46;color:white;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:1rem;">📱 Text us: (337) 381-6846</a>
+    </div>
 
     <div class="tiers">
       <div class="tier">
@@ -738,11 +783,29 @@
         </ul>
         <button onclick="checkout('premium')">Get Started</button>
       </div>
+
+      <div class="tier">
+        <h3>Pay As You Go</h3>
+        <div class="price">Single <span>cleaning</span></div>
+        <div class="frequency">One-off, no commitment</div>
+        <ul>
+          <li>Single yard cleanup</li>
+          <li>Up to 2 dogs included</li>
+          <li>All waste bagged &amp; removed</li>
+          <li>Perfect for trial or catch-up</li>
+          <li>Text for availability &amp; quote</li>
+        </ul>
+        <button onclick="window.location.href='sms:+13373816846'">Contact Us</button>
+      </div>
     </div>
   </section>
 
   <section class="faq">
     <h2>Common Questions</h2>
+    <div class="faq-item">
+      <h3>Who are we?</h3>
+      <p>Pet Errands is a locally owned, family-run business based in the Pearland and Manvel area. Every Pet Pawvisor we send is background-checked, interviewed in person, and has extensive hands-on experience with pets. <a href="/about/">Learn more about us</a>.</p>
+    </div>
     <div class="faq-item">
       <h3>What if I have more than 2 dogs?</h3>
       <p>Lite and Basic plans include up to 2 dogs. Standard and Premium plans cover unlimited dogs.</p>
@@ -771,11 +834,11 @@
       <div class="cross-sell-body">
         <span class="eyebrow">Also Available</span>
         <h2>Need dog walks too?</h2>
-        <p>Happy, tired dogs without the long-term commitment. Buy walk packs and use them whenever you need — no subscription.</p>
-        <span class="price-hint">From $17 per walk · Packs valid 6 months</span>
+        <p>Monthly dog walking plans from $79/mo. 30-min walks, 1 to 5 times per week. Plus quick potty-break visits from $99/mo for workdays.</p>
+        <span class="price-hint">Dog Walking &amp; Pet Visits · Save up to 41%</span>
       </div>
       <div class="cross-sell-cta">
-        <span style="display:inline-block;background:#2d7d46;color:white;padding:12px 22px;border-radius:8px;font-weight:600;font-size:0.95rem;white-space:nowrap;">View Walk Packs &rarr;</span>
+        <span style="display:inline-block;background:#2d7d46;color:white;padding:12px 22px;border-radius:8px;font-weight:600;font-size:0.95rem;white-space:nowrap;">View Walk Plans &rarr;</span>
       </div>
     </a>
   </section>
@@ -825,29 +888,7 @@
           <option value="5+">5+ dogs</option>
         </select>
 
-        <label for="regPrefDay">Preferred Day</label>
-        <select id="regPrefDay" required>
-          <option value="">Select a day</option>
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
-          <option value="Sunday">Sunday</option>
-        </select>
-
-        <label for="regAltDay">Alternative Day</label>
-        <select id="regAltDay" required>
-          <option value="">Select a day</option>
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
-          <option value="Sunday">Sunday</option>
-        </select>
+        <div id="daySelectors"></div>
 
         <label for="regPrefTime">Preferred Time</label>
         <select id="regPrefTime" required>
@@ -858,6 +899,9 @@
           <option value="Late Afternoon (4pm-6pm)">Late Afternoon (4pm-6pm)</option>
         </select>
 
+        <label for="regNotes">Other Considerations <span style="color:#888;font-weight:400;font-size:0.85rem;">(optional)</span></label>
+        <textarea id="regNotes" placeholder="Gate code, yard access, dog temperament, waste bin location, special instructions, etc."></textarea>
+
         <button type="submit" class="btn-submit">Continue to Payment</button>
       </form>
     </div>
@@ -866,10 +910,10 @@
   <script>
     // Stripe Payment Links — replace with your actual links from Stripe Dashboard
     const PAYMENT_LINKS = {
-      lite:     'https://buy.stripe.com/14A6oG4SG1tMeVO7o15ZC04',
-      basic:    'https://buy.stripe.com/dRm5kCgBo6O64ha5fT5ZC03',
-      standard: 'https://buy.stripe.com/6oUeVc2Ky7SacNGgYB5ZC02',
-      premium:  'https://buy.stripe.com/00weVc4SGegy00U0ZD5ZC01',
+      lite:     'https://buy.stripe.com/aFacN4ad02xQbJCdMp5ZC0h',
+      basic:    'https://buy.stripe.com/14A7sKcl8egy8xq4bP5ZC0i',
+      standard: 'https://buy.stripe.com/fZubJ0etg6O69BuaAd5ZC0j',
+      premium:  'https://buy.stripe.com/4gM4gybh4dcufZScIl5ZC0k',
     };
 
     const PLAN_LABELS = {
@@ -879,11 +923,77 @@
       premium: 'Premium — $89/mo (3 visits/week)',
     };
 
+    // Frequency of service per tier, used to render day selectors.
+    const TIER_FREQUENCY = {
+      lite:     { prefCount: 1, altCount: 1 },
+      basic:    { prefCount: 1, altCount: 1 },
+      standard: { prefCount: 2, altCount: 2 },
+      premium:  { prefCount: 3, altCount: 2 },
+    };
+
+    const DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+    function buildDaySelectors(tier) {
+      const container = document.getElementById('daySelectors');
+      container.innerHTML = '';
+      const cfg = TIER_FREQUENCY[tier] || { prefCount: 1, altCount: 1 };
+
+      if (cfg.fixed === 'weekdays') {
+        container.innerHTML = '<div style="background:#f0faf3;border:1px solid #c7e8d1;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:0.9rem;color:#1a5c30;">We\'ll come every weekday (Monday–Friday). No day selection needed.</div>';
+        return;
+      }
+      if (cfg.fixed === 'daily') {
+        container.innerHTML = '<div style="background:#f0faf3;border:1px solid #c7e8d1;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:0.9rem;color:#1a5c30;">We\'ll come every day of the week. No day selection needed.</div>';
+        return;
+      }
+
+      const makeSelect = (id, label, required) => {
+        const lbl = document.createElement('label');
+        lbl.htmlFor = id;
+        lbl.textContent = label;
+        const sel = document.createElement('select');
+        sel.id = id;
+        sel.name = id;
+        if (required) sel.required = true;
+        sel.innerHTML = '<option value="">Select a day</option>' +
+          DAYS.map(d => '<option value="' + d + '">' + d + '</option>').join('');
+        container.appendChild(lbl);
+        container.appendChild(sel);
+      };
+
+      for (let i = 1; i <= cfg.prefCount; i++) {
+        const label = cfg.prefCount === 1 ? 'Preferred Day' : 'Preferred Day ' + i;
+        makeSelect('regPrefDay' + i, label, true);
+      }
+      for (let i = 1; i <= cfg.altCount; i++) {
+        const label = cfg.altCount === 1 ? 'Alternative Day' : 'Alternative Day ' + i;
+        makeSelect('regAltDay' + i, label, false);
+      }
+    }
+
+    function collectDayValues() {
+      const cfg = TIER_FREQUENCY[selectedTier] || { prefCount: 1, altCount: 1 };
+      if (cfg.fixed === 'weekdays') return { prefDay: 'Weekdays (Mon-Fri)', altDay: '' };
+      if (cfg.fixed === 'daily') return { prefDay: 'Daily', altDay: '' };
+      const prefs = [];
+      for (let i = 1; i <= cfg.prefCount; i++) {
+        const v = document.getElementById('regPrefDay' + i);
+        if (v && v.value) prefs.push(v.value);
+      }
+      const alts = [];
+      for (let i = 1; i <= cfg.altCount; i++) {
+        const v = document.getElementById('regAltDay' + i);
+        if (v && v.value) alts.push(v.value);
+      }
+      return { prefDay: prefs.join(', '), altDay: alts.join(', ') };
+    }
+
     let selectedTier = null;
 
     function checkout(tier) {
       selectedTier = tier;
       document.getElementById('modalPlan').textContent = PLAN_LABELS[tier];
+      buildDaySelectors(tier);
       document.getElementById('regModal').classList.add('active');
       document.getElementById('regName').focus();
     }
@@ -891,6 +1001,7 @@
     function closeModal() {
       document.getElementById('regModal').classList.remove('active');
       document.getElementById('regForm').reset();
+      document.getElementById('daySelectors').innerHTML = '';
       document.getElementById('emailError').style.display = 'none';
       selectedTier = null;
     }
@@ -913,9 +1024,9 @@
       const email = document.getElementById('regEmail').value.trim();
       const address = document.getElementById('regAddress').value.trim();
       const dogs = document.getElementById('regDogs').value;
-      const prefDay = document.getElementById('regPrefDay').value;
-      const altDay = document.getElementById('regAltDay').value;
+      const { prefDay, altDay } = collectDayValues();
       const prefTime = document.getElementById('regPrefTime').value;
+      const notes = document.getElementById('regNotes').value.trim();
       const emailError = document.getElementById('emailError');
 
       // Validate email
@@ -927,11 +1038,11 @@
       emailError.style.display = 'none';
 
       // Store customer info
-      const customerData = { name, phone, email, address, dogs, prefDay, altDay, prefTime, plan: selectedTier || null, service: 'waste-pickup', paymentStatus: 'Pending' };
+      const customerData = { name, phone, email, address, dogs, prefDay, altDay, prefTime, notes, plan: selectedTier || null, service: 'waste-pickup', paymentStatus: 'Pending' };
       localStorage.setItem('petErrands_customer', JSON.stringify(customerData));
 
       // Send to Google Sheets via hidden iframe form (avoids CORS issues)
-      const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzAyTkHdbOTLzHNolYczUKJN7xbX98T4LYw47oabNoLEiz27-55rjRHT4nb4weBVM-y/exec';
+      const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyjRYLUkVFUwZP5T-pj5yYoS3i-BGcHeHuB2u_v7B8gN7bowxJxp2RLLfgPg7xHH7MT/exec';
       const iframe = document.createElement('iframe');
       iframe.name = 'sheets-submit';
       iframe.style.display = 'none';

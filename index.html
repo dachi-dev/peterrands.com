@@ -122,6 +122,28 @@
 
     nav a.cta:hover { background: #1a5c30; }
 
+    nav .nav-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #1a5c30;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 8px 14px;
+      border: 2px solid #1a5c30;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav .nav-phone:hover { background: #1a5c30; color: white; }
+    nav .nav-phone::before { content: '\1F4AC'; }
+
+    @media (max-width: 640px) {
+      nav { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+      nav .nav-links { gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+      nav .nav-phone { padding: 6px 10px; font-size: 0.85rem; }
+    }
+
     /* Hero */
     .hero {
       background: linear-gradient(135deg, #2d7d46 0%, #1a5c30 100%);
@@ -502,6 +524,8 @@
     <div class="nav-links">
       <a href="#services" class="nav-link">Services</a>
       <a href="#areas" class="nav-link">Areas</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="sms:+13373816846" class="nav-phone">Text (337) 381-6846</a>
       <a href="#specials" class="cta">Specials</a>
     </div>
   </nav>
@@ -530,8 +554,15 @@
       <a href="/dog-walking/" class="service-card">
         <div class="icon">🐕</div>
         <h3>Dog Walking</h3>
-        <p>Pay-as-you-go walk packs from $17/walk. No subscription, no commitment. Use punches whenever you need.</p>
-        <span class="link">View packs</span>
+        <p>Monthly plans from $79/mo. 30-min walks, 1 to 5 times per week. Cancel anytime.</p>
+        <span class="link">View plans</span>
+      </a>
+
+      <a href="/pet-visits/" class="service-card">
+        <div class="icon">🐾</div>
+        <h3>Pet Visits</h3>
+        <p>Quick 15-min in-home check-ins — let dogs out, feed cats, refill water. Plans from $99/mo, 2 to 7 visits per week.</p>
+        <span class="link">View plans</span>
       </a>
 
       <div class="service-card coming-soon">
@@ -592,18 +623,37 @@
         <div class="hoa-deal-info">
           <span class="badge">Launch Pricing</span>
           <h3>Dog Walking</h3>
-          <p>Pay-as-you-go walk packs with no subscription. Buy in bulk and save — punches valid for 6 months so you can use them at your own pace.</p>
+          <p>Monthly dog walking plans with 30-min walks. Pick your frequency — 1 to 5 walks per week. Auto-renews so your pup never misses a walk.</p>
           <ul>
             <li>30-min active walks</li>
             <li>Up to 2 dogs</li>
             <li>Photo &amp; note after each walk</li>
-            <li>Save up to 23% with packs</li>
+            <li>Save up to 34%</li>
           </ul>
         </div>
         <div class="hoa-deal-action">
-          <div class="original">$22/walk</div>
-          <div class="price">$17 <span>/walk (20-pack)</span></div>
-          <a href="/dog-walking/">View Packs</a>
+          <div class="original">$108/mo</div>
+          <div class="price">$79 <span>/mo starting</span></div>
+          <a href="/dog-walking/">View Plans</a>
+        </div>
+      </div>
+
+      <div class="hoa-deal">
+        <div class="hoa-deal-info">
+          <span class="badge">Launch Pricing</span>
+          <h3>Pet Visits</h3>
+          <p>Quick 15-min in-home check-ins while you're out. Let dogs out, feed cats, refill water, and give your pets a little love. 2 to 7 visits per week.</p>
+          <ul>
+            <li>15-min in-home visits</li>
+            <li>Up to 2 pets</li>
+            <li>Photo &amp; note after each visit</li>
+            <li>Save up to 41%</li>
+          </ul>
+        </div>
+        <div class="hoa-deal-action">
+          <div class="original">$130/mo</div>
+          <div class="price">$99 <span>/mo starting</span></div>
+          <a href="/pet-visits/">View Plans</a>
         </div>
       </div>
     </div>

@@ -53,7 +53,7 @@
     // Send payment completion to Google Sheets
     const customer = JSON.parse(localStorage.getItem('petErrands_customer') || 'null');
     if (customer && customer.email) {
-      const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzAyTkHdbOTLzHNolYczUKJN7xbX98T4LYw47oabNoLEiz27-55rjRHT4nb4weBVM-y/exec';
+      const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyjRYLUkVFUwZP5T-pj5yYoS3i-BGcHeHuB2u_v7B8gN7bowxJxp2RLLfgPg7xHH7MT/exec';
       const iframe = document.createElement('iframe');
       iframe.name = 'sheets-update';
       iframe.style.display = 'none';

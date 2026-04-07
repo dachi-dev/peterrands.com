@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pet Errands - Facebook Banner</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+  html, body { margin: 0; padding: 0; background: #2a2a2a; font-family: 'Inter', sans-serif; }
+
+  .banner {
+    width: 1640px;
+    height: 624px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #1a5c30 0%, #2d7d46 55%, #4ba866 100%);
+    color: #fff;
+    margin: 0 auto;
+  }
+
+  /* Right-side dog photo */
+  .photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 820px;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1400&q=80');
+    background-size: cover;
+    background-position: center 30%;
+  }
+  .photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #1a5c30 0%, rgba(26,92,48,0.75) 18%, rgba(26,92,48,0) 55%);
+  }
+
+  /* Text content, kept in mobile-safe center area (~563 wide centered) */
+  .content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 960px;
+    height: 100%;
+    padding: 0 0 0 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+  }
+  .eyebrow {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #ffd84d;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 0.92;
+    margin: 0 0 22px;
+    letter-spacing: -3px;
+    text-shadow: 0 6px 24px rgba(0,0,0,0.35);
+  }
+  .tag {
+    font-size: 36px;
+    font-weight: 600;
+    opacity: 0.97;
+    margin-bottom: 28px;
+    line-height: 1.25;
+  }
+  .services {
+    font-size: 26px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+  }
+  .services span { margin: 0 10px; color: #ffd84d; font-weight: 700; }
+  .cta {
+    align-self: flex-start;
+    background: #ffd84d;
+    color: #1a5c30;
+    font-size: 30px;
+    font-weight: 900;
+    padding: 18px 42px;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="photo"></div>
+    <div class="content">
+      <div class="eyebrow">Pearland &amp; Surrounding Areas</div>
+      <h1>Pet Errands</h1>
+      <div class="tag">Pet errands, handled.</div>
+      <div class="services">Waste Pickup<span>&middot;</span>Pet Taxi<span>&middot;</span>Dog Walking</div>
+      <div class="cta">PetErrands.com</div>
+    </div>
+  </div>
+</body>
+</html>
