@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All Services - Pet Errands Promo (Landscape)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+  html, body { margin: 0; padding: 0; background: #2a2a2a; font-family: 'Inter', sans-serif; }
+
+  .poster {
+    width: 1200px;
+    height: 630px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a5c30 0%, #2d7d46 60%, #4ba866 100%);
+    color: #fff;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  /* Decorative paw prints */
+  .paw {
+    position: absolute;
+    opacity: 0.06;
+    font-size: 280px;
+    pointer-events: none;
+  }
+  .paw.p1 { top: -60px; left: -50px; transform: rotate(-15deg); }
+  .paw.p2 { bottom: -90px; right: -60px; transform: rotate(22deg); }
+
+  /* Left column */
+  .left {
+    flex: 1.05;
+    padding: 70px 50px 60px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+  .eyebrow {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ffd84d;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: 76px;
+    font-weight: 900;
+    line-height: 0.95;
+    margin: 0 0 18px;
+    letter-spacing: -2px;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  }
+  h1 span { color: #ffd84d; display: block; }
+  .sub {
+    font-size: 20px;
+    font-weight: 500;
+    opacity: 0.95;
+    line-height: 1.4;
+    margin-bottom: 28px;
+    max-width: 520px;
+  }
+  .cta {
+    display: inline-block;
+    background: #ffd84d;
+    color: #1a5c30;
+    font-size: 24px;
+    font-weight: 900;
+    padding: 16px 40px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.3);
+  }
+  .tag {
+    margin-top: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.92;
+    letter-spacing: 0.8px;
+  }
+  .tag strong { color: #ffd84d; }
+
+  /* Right column - services grid */
+  .right {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 14px;
+    padding: 60px 60px 60px 0;
+    position: relative;
+    z-index: 2;
+  }
+  .service {
+    background: rgba(255,255,255,0.13);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 14px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  }
+  .service .emoji {
+    font-size: 42px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .service h3 {
+    font-size: 19px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.2px;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="paw p1">🐾</div>
+    <div class="paw p2">🐾</div>
+
+    <div class="left">
+      <div class="eyebrow">Houston &amp; Surrounding Areas</div>
+      <h1>Pet Errands<span>Handled.</span></h1>
+      <div class="sub">From poop patrol to pet taxi — we take care of the chores so you can enjoy the cuddles.</div>
+      <div>
+        <span class="cta">PetErrands.com</span>
+      </div>
+      <div class="tag">Locally owned &middot; <strong>Family run</strong> &middot; Pet parents</div>
+    </div>
+
+    <div class="right">
+      <div class="service"><div class="emoji">💩</div><h3>Waste Pickup</h3></div>
+      <div class="service"><div class="emoji">🐕</div><h3>Dog Walking</h3></div>
+      <div class="service"><div class="emoji">🐾</div><h3>Pet Visits</h3></div>
+      <div class="service"><div class="emoji">🚗</div><h3>Pet Taxi</h3></div>
+      <div class="service"><div class="emoji">🛁</div><h3>Grooming Runs</h3></div>
+      <div class="service"><div class="emoji">🦴</div><h3>Supply Drops</h3></div>
+    </div>
+  </div>
+</body>
+</html>
